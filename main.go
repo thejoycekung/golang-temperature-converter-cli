@@ -18,18 +18,18 @@ var errReadingInput = errors.New("Error reading input")
 
 func main() {
 
-	if len(os.Args) > 2 {
+	if len(os.Args) != 2 {
 		printError(errInvalidArguments)
-	}
+	} else {
+		for {
+			fmt.Print("What is the current temperature in " + originUnit + " ? ")
 
-	for {
-		fmt.Print("What is the current temperature in " + originUnit + " ? ")
+			fmt.Print("Would you like to convert another temperature ? (y/n) ")
 
-		fmt.Print("Would you like to convert another temperature ? (y/n) ")
-
-		if shouldConvertAgain != "Y" {
-			fmt.Println("Good bye!")
-			break
+			if shouldConvertAgain != "Y" {
+				fmt.Println("Good bye!")
+				break
+			}
 		}
 	}
 }
